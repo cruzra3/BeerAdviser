@@ -7,7 +7,11 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.List;
+
 public class FindBeerActivity extends AppCompatActivity {
+
+    private BeerExpert expert = new BeerExpert();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +23,12 @@ public class FindBeerActivity extends AppCompatActivity {
         TextView brands = (TextView) findViewById(R.id.brands);
         Spinner color = findViewById(R.id.color);
         String beerType = String.valueOf(color.getSelectedItem());
-        brands.setText(beerType);
+
+        List<String> brandsList = expert.getBrands(beerType);
+        StringBuilder brandsFormatted = new StringBuilder();
+        for(String brand: brandsList){
+            brandsFormatted.append(brand).append('\n');
+        }
+        brands.setText(brandsFormatted);
     }
 }
