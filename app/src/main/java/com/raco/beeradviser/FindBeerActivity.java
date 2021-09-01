@@ -16,7 +16,7 @@ public class FindBeerActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_find_beer);
+        setContentView(R.layout.activity_find_beer); //
     }
 
     public void onClickFindBeer(View view) {
